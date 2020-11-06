@@ -3,6 +3,7 @@
 
 using namespace std;
 
+int _id = 1;
 
 class Date {
 	int day;
@@ -17,20 +18,20 @@ public:
 	}
 
 	void getData() {
-		cout << "äåíü: ";
+		cout << "Ð´ÐµÐ½ÑŒ: ";
 		cout <<day << endl;
-		cout << "ìåñÿö: ";
+		cout << "Ð¼ÐµÑÑÑ†: ";
 		cout << month << endl;
-		cout << "ãîä: ";
+		cout << "Ð³Ð¾Ð´: ";
 		cout << year << endl;
 	}
 
 	void putData() {
-		cout << "Ââîäèòå äåíü: ";
+		cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð´ÐµÐ½ÑŒ: ";
 		cin >> day;
-		cout << "Ââîäèòå ìåñÿö: ";
+		cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð¼ÐµÑÑÑ†: ";
 		cin >> month;
-		cout << "Ââîäèòå ãîä: ";
+		cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð³Ð¾Ð´: ";
 		cin >> year;
 	}
 };
@@ -42,26 +43,26 @@ enum Etype {
 };
 
 class Employee {
-	static int id;
+	int id;
 	float salary;
 	Date data;
 	Etype type;
 
 public:
 	Employee() { 
-		id++;
+		id = _id++;
 		salary = 0;
 	}
 
 	void putEmploy() {
-		cout << "Ââîäèòå çàðïëàòó: ";
+		cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð·Ð°Ñ€Ð¿Ð»Ð°Ñ‚Ñƒ: ";
 		cin >> salary;
-		cout << "Ââîäèòå äàòó ïðèåìà" << endl;
+		cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ Ð¿Ñ€Ð¸ÐµÐ¼Ð°" << endl;
 		data.putData();
-		cout << "Âûáåðèòå äîëüæíîñòü" << endl;
-		cout << "1) Ëàáîðàíò" << endl;
-		cout << "2) Ñåêðåòàð" << endl;
-		cout << "3) Ìåíåäæåð" << endl;
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð¾Ð»ÑŒÐ¶Ð½Ð¾ÑÑ‚ÑŒ" << endl;
+		cout << "1) Ð›Ð°Ð±Ð¾Ñ€Ð°Ð½Ñ‚" << endl;
+		cout << "2) Ð¡ÐµÐºÑ€ÐµÑ‚Ð°Ñ€" << endl;
+		cout << "3) ÐœÐµÐ½ÐµÐ´Ð¶ÐµÑ€" << endl;
 		int k;
 		cin >> k;
 		if (k == 1) type = Laborant;
@@ -71,19 +72,18 @@ public:
 
 	void getEmploy() {
 		cout << "ID: " << id << endl;
-		cout << "Äàòà ïðèåìà" << endl;
+		cout << "Ð—Ð°Ñ€Ð¿Ð»Ð°Ñ‚Ð°: " << salary << endl;
+		cout << "Ð”Ð°Ñ‚Ð° Ð¿Ñ€Ð¸ÐµÐ¼Ð°" << endl;
 		data.getData();
-		cout << "Äîëüæíîñòü: ";
-		if (type == Laborant) cout << "Ëàáîðàíò" << endl;
+		cout << "Ð”Ð¾Ð»ÑŒÐ¶Ð½Ð¾ÑÑ‚ÑŒ: ";
+		if (type == Laborant) cout << "Ð›Ð°Ð±Ð¾Ñ€Ð°Ð½Ñ‚" << endl;
 		else if (type == Sekretar)
-		cout << "Ñåêðåòàð" << endl;
+		cout << "Ð¡ÐµÐºÑ€ÐµÑ‚Ð°Ñ€" << endl;
 		else 
-		cout << "Ìåíåäæåð" << endl;
+		cout << "ÐœÐµÐ½ÐµÐ´Ð¶ÐµÑ€" << endl;
 	}
 
 };
-
-int Employee::id = 0;
 
 int main() {
 	setlocale(LC_ALL, "rus");
